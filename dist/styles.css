@@ -99,13 +99,23 @@ section {
     font-size: 32px;
     font-weight: 900;
     margin-bottom: 10px;
-    color: #0A69D2;
+    color: rgba(255, 255, 255, 0.1);
+    background: -webkit-gradient(linear, left top, right top, from(#222), to(#222), color-stop(0.5, #fff));
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-color: #222;
+    background-size: 125px 100%;
+    -webkit-background-clip: text;
+    animation: heading 2s infinite;
 }
 .heading p {
     font-size: 18px;
     font-weight: 400;
 }
-
+@keyframes heading {
+    0% { background-position: top left }
+    100% {background-position: top right }
+}
 @media (max-width: 1024px) {
     .heading h1 {
         font-size: 24px;
@@ -272,7 +282,7 @@ section {
     border-radius: 2px;
     text-align: center;
     margin-top: 3px;
-    font-size: 6px;
+    font-size: 8px;
     padding: 3px;
     transition: color .3s, background .3s, border-color .3s;
 }
@@ -282,9 +292,15 @@ section {
     color: #FFFFFF;
     border-color: #9FC5F1
 }
+.ps-moon {
+    z-index: 1;
+}
 .ps-moon p {
-    transform: translateX(-50%) scale(0.5);
+    transform: translateX(-50%) scale(0.7);
     transform-origin: 50% 0;
+}
+.ps-sun:not(.active) p {
+    opacity: 0;
 }
 
 

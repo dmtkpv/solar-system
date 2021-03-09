@@ -14,9 +14,9 @@ const planetaryConfig = {
 
     sizes: {
         canvas: 1024,
-        sun: 48,
-        planet: 24,
-        moon: 12
+        sun: 64,
+        planet: 48,
+        moon: 24
     },
 
     sun: {

@@ -28,6 +28,9 @@ export default class Sun {
         this.$node.appendChild(this.$image);
         this.system.$items.appendChild(this.$node);
 
+        this.$label = Utils.createLabel('Click to reset');
+        this.$node.appendChild(this.$label);
+
 
         // translate animation
 
@@ -53,10 +56,12 @@ export default class Sun {
 
         this.system.on('activate', () => {
             this.translate.play();
+            this.$node.classList.add('active');
         });
 
         this.system.on('deactivate', () => {
             this.translate.reverse();
+            this.$node.classList.remove('active');
         });
 
 

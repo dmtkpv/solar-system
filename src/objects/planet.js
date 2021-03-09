@@ -1,6 +1,8 @@
 import Utils from '@/utils'
 import MoonOrbit from '@/objects/moon-orbit'
 import Moon from '@/objects/moon'
+import Spin from '@/animations/spin'
+
 
 export default class Planet {
 
@@ -64,83 +66,13 @@ export default class Planet {
 
         // spin animations
 
-        this.spin = gsap.to(this, {
+        this.spin = new Spin(this, {
             duration: 2 * Math.PI * this.distance * this.system.options.speed,
             angle: this.angle + 360,
-            repeat: -1,
-            ease: Power0.easeNone,
             onUpdate: () => {
                 this.setTransform();
             }
-        });
-
-
-        // DOM listeners
-
-        this.$node.addEventListener('mouseenter', () => {
-            if (this.active) return;
-            this.$node.classList.add('hovered');
-            this.system.emit('enter', this);
         })
-
-        this.$node.addEventListener('mouseleave', () => {
-            this.$node.classList.remove('hovered');
-            if (this.active) return;
-            this.system.emit('leave', this);
-        })
-
-        this.$node.addEventListener('click', () => {
-            if (this.active) this.system.emit('click', this);
-            else this.system.emit('activate', this);
-        })
-
-
-        // event listeners
-
-        this.system.on('pause', () => {
-            this.spin.pause();
-        })
-
-        this.system.on('resume', () => {
-            this.spin.play();
-        })
-
-        this.system.on('timescale', value => {
-            this.spin.timeScale(value);
-        })
-
-        this.system.on('enter', planet => {
-            if (planet.orbit !== this.orbit) return;
-            if (!this.system.paused) this.spin.pause();
-        })
-
-        this.system.on('leave', planet => {
-            if (planet.orbit !== this.orbit) return;
-            if (!this.system.paused) this.spin.resume();
-        })
-
-        this.system.on('activate', planet => {
-            if (planet === this) {
-                this.active = true;
-                this.$node.classList.add('active');
-                this.move(0, this.system.options.sizes.sun / this.size);
-            }
-            else {
-                this.active = false;
-                this.$node.classList.remove('active');
-                this.move(this.system.activeOrbitSizes[this.orbit.index + 1] / 2, 1);
-            }
-        })
-
-        this.system.on('deactivate', () => {
-            this.active = false;
-            this.move(this.system.normalOrbitSizes[this.orbit.index] / 2, 1);
-            if (!this.system.paused) this.spin.resume();
-        });
-
-        this.system.on('camera', () => {
-            if (this.system.paused) this.setTransform();
-        });
 
         
     }

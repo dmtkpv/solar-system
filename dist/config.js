@@ -2,7 +2,7 @@ const planetaryConfig = {
 
     camera: {
         perspective: 1500,
-        angle: 75
+        angle: 0
     },
 
     durations: {

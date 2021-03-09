@@ -3,6 +3,7 @@ import Utils from '@/utils'
 import Sun from '@/objects/sun'
 import PlanetOrbit from '@/objects/planet-orbit'
 import Scene from '@/scene/scene'
+import listen from '@/listeners/listen'
 
 
 export default class PlanetarySystem {
@@ -16,7 +17,6 @@ export default class PlanetarySystem {
     constructor ($node, options) {
 
         this.options = options;
-        this.listeners = [];
 
 
         // create nodes
@@ -33,20 +33,18 @@ export default class PlanetarySystem {
 
         // configuration
 
-        this.setCamera(options.camera);
+        this.listeners = [];
         this.normalOrbitSizes = this.getOrbitSizes(this.maxOrbit);
         this.activeOrbitSizes = this.getOrbitSizes(this.maxOrbit + 1);
         this.active = null;
         this.paused = false;
         this.timeScale = 1;
+        this.setCamera(options.camera);
+
+
+        // create scene
+
         this.scene = new Scene(this);
-
-
-
-        // listeners
-
-        // this.on('activate', planet => this.active = planet);
-        // this.on('deactivate', () => this.active = null);
 
 
         // create sun
@@ -65,8 +63,10 @@ export default class PlanetarySystem {
             system: this
         }));
 
-        // console.log(this.normalOrbitSizes);
-        // console.log(this.activeOrbitSizes);
+
+        // listen
+
+        listen(this);
 
 
     }

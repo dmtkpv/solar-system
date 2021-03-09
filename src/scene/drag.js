@@ -25,6 +25,7 @@ export default function (scene) {
     // ----------------------
 
     function start (event) {
+        if (event.touches.length > 1) return end();
         const e = getEvent(event);
         drag = {
             clientX: e.clientX,

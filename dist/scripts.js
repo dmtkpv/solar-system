@@ -154,7 +154,6 @@
     }
 
     function outsideNote (event) {
-        console.log('outsideNote')
         let parent = event.target;
         while (parent) {
             if (parent === $note) return;

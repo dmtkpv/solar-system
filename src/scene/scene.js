@@ -1,5 +1,5 @@
 import drag from './drag'
-import wheel from './wheel'
+import zoom from './zoom'
 import resize from './resize'
 
 export default class Scene {
@@ -21,7 +21,7 @@ export default class Scene {
         this.padding = {};
 
         drag(this);
-        wheel(this);
+        zoom(this);
         resize(this);
 
     }

@@ -299,6 +299,10 @@ section {
     transform: translateX(-50%) scale(0.7);
     transform-origin: 50% 0;
 }
+.ps-sun p {
+    transition: opacity .3s;
+    white-space: nowrap;
+}
 .ps-sun:not(.active) p {
     opacity: 0;
 }

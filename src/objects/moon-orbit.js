@@ -55,7 +55,10 @@ export default class MoonOrbit {
         })
 
         this.system.on('activate', planet => {
-            if (planet.moonOrbit === this) this.resize(this.system.activeOrbitSizes[0]);
+            if (planet.moonOrbit === this) {
+                this.resize(this.system.activeOrbitSizes[0]);
+                this.fade.play();
+            }
             else {
                 this.resize(this.system.activeOrbitSizes.moon);
                 this.fade.reverse();

@@ -117,6 +117,7 @@ export default class Moon {
         this.system.on('activate', planet => {
             if (planet.moons.includes(this)) {
                 this.move(this.system.activeOrbitSizes[0] / 2, this.system.options.sizes.planet / this.size);
+                this.fade.play();
             }
             else {
                 this.move(this.system.activeOrbitSizes.moon / 2, 1);

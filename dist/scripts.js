@@ -105,6 +105,7 @@
     // ----------------------
 
     const $nav = document.getElementById('nav');
+    const $sun = system.sun.$node;
     const planets = system.orbits.map(orbit => orbit.planets).flat();
 
     planets.forEach(planet => {
@@ -115,7 +116,7 @@
         $nav.appendChild($link);
         planet.$link = $link;
     })
-    
+
     function navActivate (planet) {
         planet.$node.classList.add('active');
         planet.$link.classList.add('active');
@@ -127,6 +128,7 @@
     }
 
     system.on('planet:click', target => {
+        $sun.classList.add('active');
         planets.forEach(planet => {
             if (target === planet) navActivate(planet);
             else navDeactivate(planet);
@@ -134,6 +136,7 @@
     })
 
     system.on('sun:click', () => {
+        $sun.classList.remove('active');
         planets.forEach(navDeactivate);
     })
 

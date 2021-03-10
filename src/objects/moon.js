@@ -58,6 +58,10 @@ export default class Moon {
             if (this.opacity > 0) this.system.emit('moon:leave', this);
         })
 
+        this.$node.addEventListener('click', () => {
+            this.system.emit('moon:note', this);
+        })
+
 
         // render
 

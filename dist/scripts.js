@@ -120,12 +120,12 @@
         })
     })
 
-    system.on('activate', planet => {
+    system.on('planet:click', planet => {
         $links.flat().forEach($link => $link.classList.remove('active'));
         $links[planet.orbit.index][planet.index].classList.add('active');
     })
 
-    system.on('deactivate', planet => {
+    system.on('sun:click', () => {
         $links.flat().forEach($link => $link.classList.remove('active'));
     })
 
@@ -162,7 +162,8 @@
         hideNote();
     }
 
-    system.on('click', showNote);
+    system.on('moon:note', showNote);
+    system.on('planet:note', showNote);
     $noteClose.addEventListener('click', hideNote);
     document.addEventListener('click', outsideNote, true);
 

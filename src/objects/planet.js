@@ -82,7 +82,8 @@ export default class Planet {
         })
 
         this.$node.addEventListener('click', () => {
-            this.system.emit('planet:click', this);
+            if (this.active) this.system.emit('planet:note', this);
+            else this.system.emit('planet:click', this);
         })
 
         this.system.on('camera', () => {

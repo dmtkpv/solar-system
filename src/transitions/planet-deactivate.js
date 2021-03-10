@@ -22,11 +22,7 @@ export default function (planet, system) {
     // resize moon orbit
 
     resize(planet.moonOrbit, {
-        size: moonOrbitSize,
-        onUpdate: () => {
-            planet.moonOrbit.setSize();
-            planet.moonOrbit.setTransform();
-        }
+        size: moonOrbitSize
     })
 
 

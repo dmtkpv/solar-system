@@ -27,14 +27,10 @@ export default function (planet, system) {
     });
 
 
-    // resize moon orbit (+ updating position while resizing)
+    // resize moon orbit
 
     resize(planet.moonOrbit, {
-        size: system.activeOrbitSizes[0],
-        onUpdate () {
-            planet.moonOrbit.setSize();
-            planet.moonOrbit.setTransform();
-        }
+        size: system.activeOrbitSizes[0]
     })
 
 

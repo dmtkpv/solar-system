@@ -2,6 +2,9 @@ import { fade } from '@/helpers/animations'
 
 export default function (moon) {
 
+
+    // do nothing while translating
+
     if (moon.planet.translate && moon.planet.translate.isActive()) return;
 
 

@@ -1,6 +1,6 @@
 import { fade } from '@/helpers/animations'
 
-export default function (planet) {
+export default function (planet, system) {
 
 
     if (planet.active) return;

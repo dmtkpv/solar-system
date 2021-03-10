@@ -17,6 +17,7 @@ export function spin (object, options) {
 
     object.spinPlay = () => {
         if (!object.system.paused) object.spin.resume();
+        else object.setTransform();
     }
 
     object.system.on('pause', () => {
@@ -61,7 +62,10 @@ export function resize (object, options) {
     object.resize = gsap.to(object, {
         duration: object.system.options.durations.translate,
         ease: Power1.easeInOut,
-        onUpdate: () => object.setSize(),
+        onUpdate: () => {
+            object.setSize();
+            object.setTransform();
+        },
         ...options
     })
 

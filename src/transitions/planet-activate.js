@@ -2,14 +2,15 @@ import { resize, translate } from '@/helpers/animations'
 
 export default function (planet, system) {
 
-    planet.active = true;
-
 
     // emit enter if not hovered
 
     if (!planet.hovered) {
         system.emit('planet:enter', planet);
     }
+
+    planet.active = true;
+    planet.hovered = false;
 
 
     // resume orbit planets spinning

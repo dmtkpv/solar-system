@@ -28,6 +28,10 @@ export function spin (object, options) {
         object.spin.resume();
     })
 
+    object.system.on('timescale', value => {
+        object.spin.timeScale(value);
+    })
+
 }
 
 

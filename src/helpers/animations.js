@@ -79,12 +79,16 @@ export function resize (object, options) {
 
 export function translate (object, options) {
 
+    let onUpdate;
+    if (object.system.paused) onUpdate = () => object.setTransform();
+
     object.translate && object.translate.kill();
 
     object.translate = gsap.to(object, {
         duration: object.system.options.durations.translate,
         ease: Power1.easeInOut,
-        ...options
+        onUpdate,
+        ...options,
     })
 
 }

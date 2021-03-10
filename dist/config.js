@@ -19,7 +19,7 @@ const planetaryConfig = {
 
     scales: {
         planet: 1,
-        moon: 0.5,
+        moon: 0.7,
         sun: 2
     },
 

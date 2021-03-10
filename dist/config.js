@@ -2,7 +2,7 @@ const planetaryConfig = {
 
     camera: {
         perspective: 1500,
-        angle: 75
+        angle: 0
     },
 
     durations: {
@@ -14,9 +14,13 @@ const planetaryConfig = {
 
     sizes: {
         canvas: 1024,
-        sun: 64,
-        planet: 48,
-        moon: 24
+        item: 48
+    },
+
+    scales: {
+        planet: 1,
+        moon: 0.5,
+        sun: 2
     },
 
     sun: {

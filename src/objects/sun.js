@@ -13,17 +13,16 @@ export default class Sun {
 
         // options
 
-        this.size = options.size || options.system.options.sizes.sun;
+        this.scale = options.scale || options.system.options.scales.sun;
         this.angle = options.angle || 0;
         this.distance = options.distance || 0;
         this.system = options.system;
         this.image = options.image;
-        this.scale = options.scale || 1;
 
 
         // create nodes
 
-        this.$node = Utils.createNode('ps-item ps-sun', this.size);
+        this.$node = Utils.createNode('ps-item ps-sun', this.system.itemSize);
         this.$image = Utils.createImage(this.image);
         this.$node.appendChild(this.$image);
         this.system.$items.appendChild(this.$node);
@@ -65,7 +64,7 @@ export default class Sun {
     }
 
     setTransform () {
-        this.$node.style.transform = `translate(${this.x - this.size / 2}px, ${this.y - this.size / 2}px) rotateX(-${this.system.camera.angle}deg) scale(${this.scale})`
+        this.$node.style.transform = `translate(${this.x - this.system.itemSize / 2}px, ${this.y - this.system.itemSize / 2}px) rotateX(-${this.system.camera.angle}deg) scale(${this.scale})`
     }
 
 

@@ -211,7 +211,7 @@ footer {
 
 .note {
     display: none;
-    position: fixed;
+    position: absolute;
     width: 300px;
     transform: translate(-50%, -50%);
     background: #FFFFFF;

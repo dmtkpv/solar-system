@@ -162,8 +162,8 @@
 
     function showNote (item) {
         const rect = item.$node.getBoundingClientRect();
-        $note.style.left = rect.left + rect.width / 2 + 'px'
-        $note.style.top = rect.top + rect.height / 2 + 'px'
+        $note.style.left = window.scrollX + rect.left + rect.width / 2 + 'px'
+        $note.style.top = window.scrollY + rect.top + rect.height / 2 + 'px'
         $noteTitle.textContent = item.label;
         $noteText.textContent = item.note;
         $note.style.display = 'block';

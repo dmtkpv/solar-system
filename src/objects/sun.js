@@ -32,17 +32,21 @@ export default class Sun {
         this.$node.appendChild(this.$label);
 
 
-        // DOM listeners
+        // listeners
 
         this.$node.addEventListener('click', () => {
             this.system.emit('sun:click');
         })
 
+        this.system.on('camera', () => {
+            this.setTransform()
+        });
+
 
         // render
 
         this.setTransform();
-        this.system.on('camera', () => this.setTransform());
+
 
     }
 

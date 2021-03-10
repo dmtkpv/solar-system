@@ -71,7 +71,7 @@ export default class Planet {
         })
 
 
-        // dom listeners
+        // listeners
 
         this.$node.addEventListener('mouseenter', () => {
             this.system.emit('planet:enter', this);
@@ -84,6 +84,10 @@ export default class Planet {
         this.$node.addEventListener('click', () => {
             this.system.emit('planet:click', this);
         })
+
+        this.system.on('camera', () => {
+            this.setTransform()
+        });
 
 
     }

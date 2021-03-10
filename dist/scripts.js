@@ -11,6 +11,15 @@
 
 
 
+    // ----------------------
+    // Scroll
+    // ----------------------
+
+    const $header = document.querySelector('header');
+    history.scrollRestoration = 'manual'
+    window.scrollTo(0, $header.offsetHeight);
+
+
 
     // ----------------------
     // Speed

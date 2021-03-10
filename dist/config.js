@@ -14,7 +14,7 @@ const planetaryConfig = {
 
     sizes: {
         canvas: 1024,
-        item: 48
+        item: 32
     },
 
     scales: {
@@ -36,6 +36,7 @@ const planetaryConfig = {
         {
             planets: [
                 {
+                    scale: 1.5,
                     image: 'planets/svg/planet-blue-1.svg',
                     label: 'Reading',
                     note: 'By presenting children with a wide array of content that is both captivating and at just the right reading level, by harnessing the power of adaptive technology to monitor reading progress and assist children with accessing text, and by creating a fun, interactive reading experience - LightSail helps children grow into fully literate adults who possess a lifelong love of reading.',
@@ -93,6 +94,7 @@ const planetaryConfig = {
                     ]
                 },
                 {
+                    scale: 1.5,
                     image: 'planets/svg/planet-purple-1.svg',
                     label: 'Writing',
                     note: 'Our approach to writing is multi-faceted. LightSail combines features for teaching the mechanics of writing, with modules that guide children through different writing pieces. Creativity and unlimited inspiration are fostered by the unique way LightSail integrates the books your children read and the topics they are already interested in.',
@@ -140,6 +142,7 @@ const planetaryConfig = {
                     ]
                 },
                 {
+                    scale: 1.5,
                     image: 'planets/svg/planet-red-1.svg',
                     label: 'Vocabulary',
                     note: 'LightSail takes a spiral approach to teaching vocabulary that is immersive and individualized. We integrate vocabulary instruction into the platform in multiple ways, presenting children with new words in a variety of contexts and increasing their comprehension as they encounter these words multiple times. Additionally, the words chosen for your child are completely personalized to their individual Lexile reading comprehension and vocabulary level, which automatically adjusts as they learn.',
@@ -187,6 +190,7 @@ const planetaryConfig = {
                     ]
                 },
                 {
+                    scale: 1.5,
                     image: 'planets/svg/planet-yellow.svg',
                     label: 'Fluency',
                     note: 'Measuring your child’s fluency is critical to having a complete picture of their literacy skills. Other metrics, like how many pages a week they read or even how well they comprehend the content, do not give you all of the pieces. Having an objective way to measure how well your child reads aloud is the only way to gauge whether they are confident, fluent readers.',

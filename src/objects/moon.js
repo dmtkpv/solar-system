@@ -48,7 +48,7 @@ export default class Moon {
         })
 
 
-        // dom listeners
+        // listeners
 
         this.$node.addEventListener('mouseenter', () => {
             if (this.opacity > 0) this.system.emit('moon:enter', this);
@@ -61,6 +61,10 @@ export default class Moon {
         this.$node.addEventListener('click', () => {
             this.system.emit('moon:note', this);
         })
+
+        this.system.on('camera', () => {
+            this.setTransform()
+        });
 
 
         // render

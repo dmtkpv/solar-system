@@ -3,6 +3,7 @@ import { fade } from '@/helpers/animations'
 export default function (planet) {
 
     if (planet.active) return;
+    if (planet.translate && planet.translate.isActive()) return;
     planet.hovered = false;
 
 

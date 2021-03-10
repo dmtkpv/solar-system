@@ -24,7 +24,7 @@ export default function (planet, system) {
 
     translate(planet, {
         distance: 0,
-        scale: system.options.sizes.sun / planet.size
+        zoom: system.sun.scale / planet.scale
     });
 
 
@@ -40,7 +40,7 @@ export default function (planet, system) {
     planet.moons.forEach(moon => {
         translate(moon, {
             distance: system.activeOrbitSizes[0] / 2,
-            scale: system.options.sizes.planet / moon.size
+            zoom: system.options.scales.planet / moon.scale
         });
     })
 

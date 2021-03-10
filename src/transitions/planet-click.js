@@ -12,7 +12,7 @@ export default function (target, system) {
     // move sun if not active
 
     inactive && translate(system.sun, {
-        distance: Math.sqrt(2) * (system.options.sizes.canvas - system.sun.size) / 2,
+        distance: Math.sqrt(2) * (system.options.sizes.canvas - system.options.sizes.item * system.sun.scale) / 2,
         onUpdate() {
             system.sun.setTransform()
         }

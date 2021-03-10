@@ -4,6 +4,7 @@ export default function (planet, system) {
 
 
     if (planet.active) return;
+    if (planet.translate && planet.translate.isActive()) return;
     planet.hovered = true;
 
 

@@ -21,7 +21,7 @@ const planetaryConfig = {
 
     sun: {
         image: 'planets/svg/sun.svg',
-        angle: 135
+        angle: 225
     },
 
     orbits: [

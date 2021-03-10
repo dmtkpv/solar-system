@@ -105,28 +105,36 @@
     // ----------------------
 
     const $nav = document.getElementById('nav');
-    let $links = [];
+    const planets = system.orbits.map(orbit => orbit.planets).flat();
 
-    system.orbits.forEach(orbit => {
-        orbit.planets.forEach(planet => {
-            const $link = document.createElement('a')
-            $link.className = 'u-btn';
-            $link.textContent = planet.label;
-            $link.addEventListener('click', () => planet.$node.click());
-            $nav.appendChild($link);
-            $links.push($link);
-            $links[orbit.index] = $links[orbit.index] || [];
-            $links[orbit.index][planet.index] = $link;
+    planets.forEach(planet => {
+        const $link = document.createElement('a');
+        $link.className = 'u-btn';
+        $link.textContent = planet.label;
+        $link.addEventListener('click', () => planet.$node.click());
+        $nav.appendChild($link);
+        planet.$link = $link;
+    })
+    
+    function navActivate (planet) {
+        planet.$node.classList.add('active');
+        planet.$link.classList.add('active');
+    }
+
+    function navDeactivate (planet) {
+        planet.$node.classList.remove('active');
+        planet.$link.classList.remove('active');
+    }
+
+    system.on('planet:click', target => {
+        planets.forEach(planet => {
+            if (target === planet) navActivate(planet);
+            else navDeactivate(planet);
         })
     })
 
-    system.on('planet:click', planet => {
-        $links.flat().forEach($link => $link.classList.remove('active'));
-        $links[planet.orbit.index][planet.index].classList.add('active');
-    })
-
     system.on('sun:click', () => {
-        $links.flat().forEach($link => $link.classList.remove('active'));
+        planets.forEach(navDeactivate);
     })
 
 

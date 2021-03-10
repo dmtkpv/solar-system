@@ -288,7 +288,7 @@ section {
     transition: color .3s, background .3s, border-color .3s;
 }
 .ps-item.active p,
-.ps-item.hovered p {
+.ps-item:hover p {
     background: #0A69D2;
     color: #FFFFFF;
     border-color: #9FC5F1

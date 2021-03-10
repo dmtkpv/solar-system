@@ -21,16 +21,17 @@ export default class Planet {
         this.system = options.system;
         this.moons = options.moons || [];
 
-        this.size = options.size || options.system.options.sizes.planet;
-        this.scale = options.scale || 1;
+        this.scale = options.scale || options.system.options.scales.planet;
         this.angle = options.orbit.angle + this.index * 360 / options.orbit.planets.length;
         this.distance = options.orbit.size / 2;
+        this.zoom = 1;
 
         this.image = options.image;
         this.label = options.label;
         this.note = options.note;
 
         this.active = false;
+
 
 
         // create moon orbit
@@ -55,7 +56,7 @@ export default class Planet {
 
         // create nodes
 
-        this.$node = Utils.createNode(`ps-item ps-planet ps-planet-${this.index} ps-orbit-${this.orbit.index}`, this.size);
+        this.$node = Utils.createNode(`ps-item ps-planet ps-planet-${this.index} ps-orbit-${this.orbit.index}`, this.system.itemSize);
         this.$image = Utils.createImage(this.image);
         this.$label = Utils.createLabel(this.label);
         this.$node.appendChild(this.$image);
@@ -108,7 +109,7 @@ export default class Planet {
     }
 
     setTransform () {
-        this.$node.style.transform = `translate3d(${this.x - this.size / 2}px, ${this.y - this.size / 2}px, 0) rotateX(-${this.system.camera.angle}deg) scale(${this.scale})`
+        this.$node.style.transform = `translate3d(${this.x - this.system.itemSize / 2}px, ${this.y - this.system.itemSize / 2}px, 0) rotateX(-${this.system.camera.angle}deg) scale(${this.scale * this.zoom})`
     }
 
 

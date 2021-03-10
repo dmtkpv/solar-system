@@ -78,15 +78,26 @@ export default class PlanetarySystem {
     // ----------------------
 
     getOrbitSizes (length) {
-        const { canvas, sun, moon } = this.options.sizes;
-        const minSunDist = (canvas - sun) / (length * 2 + 1);
-        let orbits = Array.from({ length }, (x, i) => sun + (i + 1) * minSunDist * 2);
-        orbits.moon = minSunDist - moon;
+        const { moon, sun } = this.options.scales;
+        const { canvas, item } = this.options.sizes;
+        const minSunDist = (canvas - item * sun) / (length * 2 + 1);
+        let orbits = Array.from({ length }, (x, i) => (item * sun) + (i + 1) * minSunDist * 2);
+        orbits.moon = minSunDist - item * moon;
         return orbits;
     }
     
     get maxOrbit () {
         return this.options.orbits.length;
+    }
+
+
+
+    // ----------------------
+    // Helpers
+    // ----------------------
+
+    get itemSize () {
+        return this.options.sizes.item;
     }
 
 

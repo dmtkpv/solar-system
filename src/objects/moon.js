@@ -18,10 +18,10 @@ export default class Moon {
         this.planet = options.planet;
         this.system = options.system;
 
-        this.size = options.size || options.system.options.sizes.moon;
-        this.scale = options.scale || 1;
+        this.scale = options.scale || options.system.options.scales.moon;
         this.angle = options.index * 360 / options.planet.moons.length;
         this.distance = options.system.normalOrbitSizes.moon / 2;
+        this.zoom = 1;
 
         this.image = options.image;
         this.label = options.label;
@@ -31,7 +31,7 @@ export default class Moon {
 
         // create nodes
 
-        this.$node = Utils.createNode(`ps-item ps-ring-${this.planet.orbit.index} ps-planet-${this.planet.index} ps-moon-${this.index} ps-moon`, this.size);
+        this.$node = Utils.createNode(`ps-item ps-ring-${this.planet.orbit.index} ps-planet-${this.planet.index} ps-moon-${this.index} ps-moon`, options.system.itemSize);
         this.$image = Utils.createImage(this.image);
         this.$label = Utils.createLabel(this.label);
         this.$node.appendChild(this.$image);
@@ -78,7 +78,7 @@ export default class Moon {
     // ----------------------
     // Styles setters
     // ----------------------
-    //
+
     setOpacity () {
         this.$node.style.opacity = this.opacity;
     }
@@ -92,7 +92,7 @@ export default class Moon {
     }
 
     setTransform () {
-        this.$node.style.transform = `translate3d(${this.x - this.size / 2}px, ${this.y - this.size / 2}px, 0) rotateX(-${this.system.camera.angle}deg) scale(${this.scale})`
+        this.$node.style.transform = `translate3d(${this.x - this.system.itemSize / 2}px, ${this.y - this.system.itemSize / 2}px, 0) rotateX(-${this.system.camera.angle}deg) scale(${this.scale * this.zoom})`
     }
 
 }

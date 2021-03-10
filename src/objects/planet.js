@@ -1,8 +1,7 @@
-import Utils from '@/utils'
 import MoonOrbit from '@/objects/moon-orbit'
 import Moon from '@/objects/moon'
-import Spin from '@/animations/spin'
-
+import Utils from '@/helpers/utils'
+import { spin } from '@/helpers/animations'
 
 export default class Planet {
 
@@ -64,36 +63,29 @@ export default class Planet {
         this.system.$items.appendChild(this.$node);
 
 
-        // spin animations
+        // spin animation
 
-        this.spin = new Spin(this, {
+        spin(this, {
             duration: 2 * Math.PI * this.distance * this.system.options.speed,
-            angle: this.angle + 360,
-            onUpdate: () => {
-                this.setTransform();
-            }
+            angle: this.angle + 360
         })
 
-        
-    }
+
+        // dom listeners
+
+        this.$node.addEventListener('mouseenter', () => {
+            this.system.emit('planet:enter', this);
+        })
+
+        this.$node.addEventListener('mouseleave', () => {
+            this.system.emit('planet:leave', this);
+        })
+
+        this.$node.addEventListener('click', () => {
+            this.system.emit('planet:click', this);
+        })
 
 
-
-    // ----------------------
-    // Helpers
-    // ----------------------
-
-    move (distance, scale) {
-        this._move && this._move.kill();
-        this._move = gsap.to(this, {
-            duration: this.system.options.durations.translate,
-            distance,
-            scale,
-            ease: Power1.easeInOut,
-            onUpdate: () => {
-                this.setTransform();
-            }
-        });
     }
 
 

@@ -1,5 +1,5 @@
-import Utils from '@/utils'
 import Planet from '@/objects/planet'
+import Utils from '@/helpers/utils'
 
 export default class Orbit {
 
@@ -37,33 +37,10 @@ export default class Orbit {
         }))
 
 
-        // resize animation
-
-        this.resize = gsap.to(this, {
-            size: this.system.activeOrbitSizes[this.index + 1],
-            duration: this.system.options.durations.translate,
-            paused: true,
-            ease: Power1.easeInOut,
-            onUpdate: () => {
-                this.setStyle();
-            }
-        })
-
-
-        // event listeners
-
-        this.system.on('activate', () => {
-            this.resize.play()
-        })
-
-        this.system.on('deactivate', () => {
-            this.resize.reverse()
-        })
-
-
         // render
 
-        this.setStyle();
+        this.setSize();
+        this.setTransform();
 
     }
 
@@ -73,8 +50,11 @@ export default class Orbit {
     // Style setters
     // ----------------------
 
-    setStyle () {
+    setSize () {
         this.$node.style.width = this.$node.style.height = this.size + 'px';
+    }
+
+    setTransform () {
         this.$node.style.transform = `translate(-${this.size / 2}px, -${this.size / 2}px)`
     }
 

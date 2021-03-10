@@ -1,9 +1,9 @@
 import './index.css'
-import Utils from '@/utils'
+import Utils from '@/helpers/utils'
 import Sun from '@/objects/sun'
 import PlanetOrbit from '@/objects/planet-orbit'
 import Scene from '@/scene/scene'
-import listen from '@/listeners/listen'
+import transitions from '@/transitions/transitions'
 
 
 export default class PlanetarySystem {
@@ -66,7 +66,7 @@ export default class PlanetarySystem {
 
         // listen
 
-        listen(this);
+        transitions(this);
 
 
     }
@@ -123,7 +123,7 @@ export default class PlanetarySystem {
 
     emit (event, param) {
         if (!this.listeners[event]) return;
-        this.listeners[event].forEach(handler => handler(param));
+        this.listeners[event].forEach(handler => handler(param, this));
     }
 
 

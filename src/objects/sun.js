@@ -1,4 +1,4 @@
-import Utils from '@/utils'
+import Utils from '@/helpers/utils'
 
 export default class Sun {
 
@@ -32,37 +32,11 @@ export default class Sun {
         this.$node.appendChild(this.$label);
 
 
-        // translate animation
-
-        this.translate = gsap.to(this, {
-            duration: this.system.options.durations.translate,
-            distance: Math.sqrt(2) * (this.system.options.sizes.canvas - this.size) / 2,
-            paused: true,
-            ease: Power1.easeInOut,
-            onUpdate: () => {
-                this.setTransform();
-            }
-        })
-
-
         // DOM listeners
 
         this.$node.addEventListener('click', () => {
-            this.system.emit('deactivate');
+            this.system.emit('sun:click');
         })
-
-
-        // event listeners
-
-        this.system.on('activate', () => {
-            this.translate.play();
-            this.$node.classList.add('active');
-        });
-
-        this.system.on('deactivate', () => {
-            this.translate.reverse();
-            this.$node.classList.remove('active');
-        });
 
 
         // render

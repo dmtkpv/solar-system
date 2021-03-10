@@ -1,4 +1,4 @@
-import Utils from '@/utils'
+import Utils from '@/helpers/utils'
 
 export default class MoonOrbit {
 
@@ -16,8 +16,8 @@ export default class MoonOrbit {
         this.size = options.system.normalOrbitSizes.moon;
         this.planet = options.planet;
         this.system = options.system;
-        this.opacity = 0;
         this.angle = this.planet.angle;
+        this.opacity = 0;
 
 
         // create node
@@ -26,75 +26,10 @@ export default class MoonOrbit {
         this.system.$orbits.appendChild(this.$node);
 
 
-        // fade animation
-
-        this.fade = gsap.to(this, {
-            duration: this.system.options.durations.fade,
-            opacity: 1,
-            paused: true,
-            ease: Power1.easeInOut,
-            onUpdate: () => {
-                this.setTransform();
-                this.setOpacity();
-            }
-        })
-
-
-        // event listeners
-
-        this.system.on('enter', planet => {
-            if (planet.moonOrbit !== this) return;
-            this.setSize();
-            this.setTransform();
-            this.fade.play();
-        })
-
-        this.system.on('leave', planet => {
-            if (planet.moonOrbit !== this) return;
-            this.fade.reverse();
-        })
-
-        this.system.on('activate', planet => {
-            if (planet.moonOrbit === this) {
-                this.resize(this.system.activeOrbitSizes[0]);
-                this.fade.play();
-            }
-            else {
-                this.resize(this.system.activeOrbitSizes.moon);
-                this.fade.reverse();
-            }
-        })
-
-        this.system.on('deactivate', () => {
-            this.resize(this.system.normalOrbitSizes.moon);
-            this.fade.reverse();
-        })
-
-
         // render
 
         this.setOpacity();
 
-    }
-
-
-
-    // ----------------------
-    // Helpers
-    // ----------------------
-
-    resize (size) {
-        this._resize && this._resize.kill();
-        this._resize = gsap.to(this, {
-            duration: this.system.options.durations.translate,
-            size,
-            ease: Power1.easeInOut,
-            onUpdate: () => {
-                if (!this.opacity) return;
-                this.setSize();
-                this.setTransform();
-            }
-        });
     }
 
 

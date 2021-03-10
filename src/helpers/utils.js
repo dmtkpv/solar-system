@@ -26,5 +26,5 @@ export default {
         const h = size / 2 + (y - size / 2) * perspective / (perspective + z);
         return h * 2;
     }
-    
+
 }

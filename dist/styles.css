@@ -261,6 +261,7 @@ section {
     border: 2px dashed #CAE1FE;
 }
 .ps-item {
+    border-radius: 50%;
     text-align: center;
 }
 .ps-item img {

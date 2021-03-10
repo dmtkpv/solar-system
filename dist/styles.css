@@ -31,6 +31,8 @@ img {
     display: block;
 }
 section {
+    display: flex;
+    flex-flow: column nowrap;
     position: relative;
     height: 100%;
 }
@@ -38,6 +40,11 @@ header {
     padding: 32px;
     background: #FFFFFF;
     color: #222222;
+    flex-shrink: 0;
+}
+article {
+    flex-grow: 1;
+    position: relative;
 }
 footer {
     padding: 128px 32px;

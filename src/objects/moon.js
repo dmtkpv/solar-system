@@ -32,7 +32,7 @@ export default class Moon {
         // create nodes
 
         this.$node = Utils.createNode(`ps-item ps-ring-${this.planet.orbit.index} ps-planet-${this.planet.index} ps-moon-${this.index} ps-moon`, options.system.itemSize);
-        this.$image = Utils.createImage(this.image);
+        this.$image = Utils.createImage(this.image, 'ps-image');
         this.$label = Utils.createLabel(this.label);
         this.$node.appendChild(this.$image);
         this.$node.appendChild(this.$label);

@@ -180,6 +180,49 @@
 
 
     // ----------------------
+    // Video
+    // ----------------------
+
+    const $video = document.getElementById('video');
+    let player = null;
+
+    function hideVideo () {
+        if (!player) return;
+        $video.style.display = 'none';
+        player.destroy();
+    }
+
+    function showVideo (planet) {
+        const rect = planet.$video.getBoundingClientRect();
+        $video.style.left = window.scrollX + rect.left + rect.width / 2 + 'px'
+        $video.style.top = window.scrollY + rect.top + rect.height / 2 + 'px'
+        $video.style.display = 'block';
+        player = new Vimeo.Player('video', {
+            url: planet.video.src,
+            width: planet.video.width,
+            height: planet.video.height,
+        });
+        player.play();
+        player.on('timeupdate', function(data) {
+            if (data.percent  > 0.998) hideVideo();
+        });
+    }
+
+    function outsideVideo (event) {
+        let parent = event.target;
+        while (parent) {
+            if (parent === $video) return;
+            parent = parent.parentNode;
+        }
+        hideVideo();
+    }
+    
+    system.on('video', showVideo);
+    document.addEventListener('click', outsideVideo, true);
+
+
+
+    // ----------------------
     // Stars
     // ----------------------
 

@@ -283,7 +283,7 @@ footer {
     border-radius: 50%;
     text-align: center;
 }
-.ps-item img {
+.ps-item .ps-image {
     position: absolute;
     top: 0;
     left: 50%;
@@ -322,6 +322,14 @@ footer {
 .ps-sun:not(.active) p {
     opacity: 0;
 }
+.ps-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    transform: translate(-50%, -50%);
+}
 
 
 
@@ -342,6 +350,17 @@ footer {
     font-weight: 900;
 }
 
+
+
+/*
+    Video
+*/
+
+.video {
+    display: none;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
 
 
 

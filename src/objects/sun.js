@@ -23,7 +23,7 @@ export default class Sun {
         // create nodes
 
         this.$node = Utils.createNode('ps-item ps-sun', this.system.itemSize);
-        this.$image = Utils.createImage(this.image);
+        this.$image = Utils.createImage(this.image, 'ps-image');
         this.$node.appendChild(this.$image);
         this.system.$items.appendChild(this.$node);
 

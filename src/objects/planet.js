@@ -57,11 +57,24 @@ export default class Planet {
         // create nodes
 
         this.$node = Utils.createNode(`ps-item ps-planet ps-planet-${this.index} ps-orbit-${this.orbit.index}`, this.system.itemSize);
-        this.$image = Utils.createImage(this.image);
+        this.$image = Utils.createImage(this.image, 'ps-image');
         this.$label = Utils.createLabel(this.label);
         this.$node.appendChild(this.$image);
         this.$node.appendChild(this.$label);
         this.system.$items.appendChild(this.$node);
+
+        
+        // create video
+
+        if (options.video) {
+            this.video = options.video;
+            this.$video = Utils.createImage(options.system.options.videoIcon, 'ps-video');
+            this.$node.appendChild(this.$video);
+            this.$video.addEventListener('click', event => {
+                this.system.emit('video', this);
+                event.stopPropagation();
+            })
+        }
 
 
         // spin animation

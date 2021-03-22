@@ -7,8 +7,9 @@ export default {
         return $node;
     },
 
-    createImage (src) {
+    createImage (src, className) {
         const $img = document.createElement('img');
+        $img.classList.add(className)
         $img.src = src;
         return $img;
     },

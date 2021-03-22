@@ -355,16 +355,20 @@ nav .u-btn.active {
 */
 
 .switch {
-    position: absolute;
-    top: 2em;
-    right: 2em;
-    height: 3em;
+    display: inline-block;
     border-radius: 1.5em;
-    line-height: 3em;
+    line-height: 2.4em;
     padding: 0 1em;
     background: #FFBC1D;
     color: #0A69D2;
     font-weight: 900;
+}
+@media (min-width: 729px) {
+    .switch {
+        position: absolute;
+        top: 0;
+        right: 2em;
+    }
 }
 
 

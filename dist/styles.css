@@ -192,6 +192,9 @@ footer {
     text-align: center;
     margin: 1.5em 0;
 }
+@media (max-width: 728px) {
+    .zoom { display: none }
+}
 
 
 
@@ -209,6 +212,9 @@ footer {
     margin: .5em 0;
     color: #FFFFFF;
     background: #0A69D2;
+}
+@media (max-width: 728px) {
+    .controls { display: none }
 }
 
 
@@ -249,7 +255,7 @@ footer {
     Nav
 */
 
-.nav {
+nav {
     position: absolute;
     left: 0;
     bottom: 24px;
@@ -259,13 +265,13 @@ footer {
     justify-content: center;
     padding: 0 2em;
 }
-.nav a {
+nav a {
     margin: .5em .25em 0 .25em;
     color: #0A69D2;
     background: #FFFFFF;
     border: 1px solid #D5E1E4;
 }
-.nav a.active {
+nav a.active {
     color: #FFFFFF;
     background: #0A69D2;
 }

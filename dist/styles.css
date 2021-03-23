@@ -382,6 +382,17 @@ nav .u-btn.active {
     position: absolute;
     transform: translate(-50%, -50%);
 }
+@media (max-width: 728px) {
+    .video {
+        top: 50% !important;
+        left: 0 !important;
+        width: 100%;
+        transform: translate(0, -50%);
+    }
+    .video iframe {
+        width: 100%;
+    }
+}
 
 
 

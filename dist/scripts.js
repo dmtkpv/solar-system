@@ -201,6 +201,7 @@
             url: planet.video.src,
             width: planet.video.width,
             height: planet.video.height,
+            muted: window.innerWidth <= 728
         });
         player.play();
         player.on('timeupdate', function(data) {

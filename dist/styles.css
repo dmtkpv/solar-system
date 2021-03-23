@@ -226,7 +226,8 @@ footer {
 .note {
     display: none;
     position: absolute;
-    width: 300px;
+    max-width: 300px;
+    width: 100%;
     transform: translate(-50%, -50%);
     background: #FFFFFF;
     color: #222222;
@@ -247,6 +248,12 @@ footer {
 }
 .note-title a {
     margin-left: 1em;
+}
+@media (max-width: 728px) {
+    .note {
+        left: 50% !important;
+        top: 50% !important;
+    }
 }
 
 

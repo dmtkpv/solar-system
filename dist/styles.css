@@ -139,7 +139,14 @@ footer {
     background-color: #222;
     background-size: 125px 100%;
     -webkit-background-clip: text;
-    animation: heading 2s infinite;
+    animation: heading 4s infinite;
+}
+.heading img {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    vertical-align: middle;
+    animation: pulse 1s ease-in-out infinite;
 }
 .heading p {
     font-size: 1.2em;

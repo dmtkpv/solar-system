@@ -250,6 +250,11 @@ const planetaryConfig = {
                 {
                     image: 'planets/svg/planet-blue-2.svg',
                     label: 'Early Learners',
+                    video: {
+                        width: 640,
+                        height: 360,
+                        src: 'https://player.vimeo.com/video/527966414'
+                    },
                     note: 'LightSail has captivating and educational content for every member of the family, from preschoolers to adults. Our features for early learners help little ones build a strong foundation of knowledge and skills, make connections, learn independently, and aquire research and navigation skills -- all while having fun!',
                     moons: [
                         {
@@ -364,6 +369,11 @@ const planetaryConfig = {
                 {
                     image: 'planets/svg/planet-yellow.svg',
                     label: 'Assessments',
+                    video: {
+                        width: 640,
+                        height: 360,
+                        src: 'https://player.vimeo.com/video/527979173'
+                    },
                     note: 'LightSail uses multiple assessment techniques to precisely measure a child\'s reading level and then uses that information to tailor their educational experience precisely for them. A child\'s reading library, writing prompts, spelling words, and more will be leveled for each individual child, and LightSail will grow with them - adapting as they learn and progress.',
                     moons: [
                         {
@@ -396,6 +406,11 @@ const planetaryConfig = {
                 {
                     image: 'planets/svg/planet-blue-3.svg',
                     label: 'Grading',
+                    video: {
+                        width: 640,
+                        height: 360,
+                        src: 'https://player.vimeo.com/video/527905097'
+                    },
                     note: 'In addition to the multiple ways that LightSail automatically assesses a child’s progress, a parent can easily grade a child’s answers to short response questions using either standard grading or a simple rubric. And LightSail contains a powerful tool for objectively grading and tracking your child\'s fluency progress called a Running Record.',
                     moons: [
                         {
@@ -423,6 +438,11 @@ const planetaryConfig = {
                 {
                     image: 'planets/svg/planet-purple-3.svg',
                     label: 'Mutlimedia',
+                    video: {
+                        width: 640,
+                        height: 360,
+                        src: 'https://player.vimeo.com/video/528299864'
+                    },
                     note: 'LightSail is a complete language arts platform for the 21st Century, incorporating a vast array of multimedia resources. Explore the world\'s landmarks with full 360 [degree symbol] images. Build a digital, interactively timeline of the history of Rome. Incorporate educational videos and TED Talks into unit studies and so much more.',
                     moons: [
                         {
@@ -470,6 +490,11 @@ const planetaryConfig = {
                 {
                     image: 'planets/svg/planet-red-3.svg',
                     label: 'Gamification',
+                    video: {
+                        width: 640,
+                        height: 360,
+                        src: 'https://player.vimeo.com/video/527916930'
+                    },
                     note: 'LightSail believes reading and writing should be fun! That is why gamification is built into every aspect of the platform with motivational badges, incentifying gifts, social sharing options, and more.',
                     moons: [
                         {
@@ -507,6 +532,11 @@ const planetaryConfig = {
                 {
                     image: 'planets/svg/planet-yellow.svg',
                     label: 'Data Feedback',
+                    video: {
+                        width: 640,
+                        height: 360,
+                        src: 'https://player.vimeo.com/video/527582705'
+                    },
                     note: 'LightSail believes that meaningful data feedback is one of the most valuable tools parents and children can have to affect real literacy progress.',
                     moons: [
                         {
@@ -606,6 +636,11 @@ const planetaryConfig = {
                 {
                     image: 'planets/svg/planet-red-1.svg',
                     label: 'Struggling Readers',
+                    video: {
+                        width: 640,
+                        height: 360,
+                        src: 'https://player.vimeo.com/video/527973425'
+                    },
                     note: 'LightSail\'s goal is to make the world a more literate place, so it brings many one-of-a-kind features and quality content especially designed to support struggling readers.',
                     moons: [
                         {

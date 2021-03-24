@@ -184,6 +184,7 @@
     // ----------------------
 
     const $video = document.getElementById('video');
+    const $intro = document.getElementById('intro');
     let player = null;
 
     function hideVideo () {
@@ -220,6 +221,16 @@
     
     system.on('video', showVideo);
     document.addEventListener('click', outsideVideo, true);
+    $intro.addEventListener('click', () => {
+        showVideo({
+            $video: $map,
+            video: {
+                src: 'https://player.vimeo.com/video/527579580',
+                width: 640,
+                height: 360
+            }
+        })
+    })
 
 
 
